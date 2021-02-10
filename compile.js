@@ -38,7 +38,9 @@ function visitCodeTree (theTree, visit) {
 				stack.pop ();
 				}
 			}
-		visit (node, stack);
+		if (node != null) {
+			visit (node, stack);
+			}
 		}
 	doVisit (theTree);
 	}
