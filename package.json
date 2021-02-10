@@ -1,0 +1,11 @@
+{ 
+	"name": "jsPreprocessor",
+	"description": "A simple JavaScript pre-processor to help get your project started.",
+	"version": "0.4.0",
+	"main": "compile.js",
+	"dependencies" : {
+		"daveutils": "*",
+		"acorn": "*",
+		"escodegen": "*"
+		}
+	}
