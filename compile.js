@@ -38,10 +38,7 @@ function visitCodeTree (theTree, visit) {
 				stack.pop ();
 				}
 			}
-		var replacewith = visit (node, stack);
-		if (replacewith !== undefined) {
-			console.log ("replacewith == " + utils.jsonStringify (replacewith));
-			}
+		visit (node, stack);
 		}
 	doVisit (theTree);
 	}
@@ -59,7 +56,6 @@ function fixSpecialFunctionCalls (theTree) {
 						}
 					node.type = "AwaitExpression";
 					node.argument = nodecopy;
-					console.log ("special node: " + utils.jsonStringify (node));
 					}
 				}
 			}
@@ -67,15 +63,16 @@ function fixSpecialFunctionCalls (theTree) {
 		});
 	}
 
-console.log (myProductName + " v" + myVersion);
+console.log ("\n" + myProductName + " v" + myVersion);
 fs.readFile ("test.js", function (err, jstext) {
 	if (err) {
 		console.log ("err.message == " + err.message);
 		}
 	else {
+		console.log ("\nsource text == \n" + jstext + "\n");
 		var code = acorn.parse (jstext, {ecmaVersion: 2020});
 		fixSpecialFunctionCalls (code);
 		var jstext2 = escodegen.generate (code);
-		console.log (jstext2);
+		console.log ("\ngenerated text == \n" + jstext2 + "\n");
 		}
 	});
