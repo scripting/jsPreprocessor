@@ -61,7 +61,6 @@ function fixSpecialFunctionCalls (theTree) {
 					}
 				}
 			}
-		return (undefined); //don't replace
 		});
 	}
 
